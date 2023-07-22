@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vanilla Js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="row top-head">
+                <div class="col">
+                    <a href="https://github.com/fak1r">
+                        <img class="logo" src="img/acolyte-yellow.png" width="150" height="150" alt="logo">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="col menu__link menu__link-active"><a href="index.html#calculate">Калькулятор</a></li>
+                    <li class="col menu__link"><a href="index.html#functional">Функционал</a></li>
+                    <li class="col menu__link"><a href="index.html#animations">Анимации</a></li>
+                    <li class="col menu__link"><a href="index.html#slider">Слайдер</a></li>
+                    <li class="col menu__link"><a href="index.html#info">Инфо</a></li>
+                    <li class="col menu__link"><a href="index.html#otherprojects">Другие проекты</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- / HEADER -->
+    <!-- CALCULATE -->
+    <section class="container bottom-line">
+        <div class="row block">
+            <div class="col first-left">
+                <img class="first-blocks__image field-image" src="img/squiggly-line.png" alt="">
+            </div>
+            <div class="col first-right">
+                <h1 class="h1" id="calculate">Калькулятор</h1>
+                <h2 class="h2">Первый проект на JS</h2>
+                <p class="p">Калькулятор реализован через объект <span class="code">calc</span>, в котором хранятся 4 арифметические функции. 
+                    При клике на кнопку вызывается функция <span class="code">calculate</span>, которая ищет арифметическое действие в объекте <span class="code">calc</span> по ключу и передаёт в найденную функцию 2 числа из инпутов. 
+                    Все буквы автоматически заменяются, как при вводе с клавиатуры, так и при попытке вставить извне. Кнопка блокируется до ввода новых значений или смены селектора.</p>
+                    <br>
+                <div class="math">
+                    <input type="text" class="num1">
+                    <select name="" id="" class="op">
+                        <option value="plus">+</option>
+                        <option value="minus">-</option>
+                        <option value="mult">*</option>
+                        <option value="div">/</option>
+                    </select>
+                    <input type="text" class="num2">
+                    <button class="btn">Результат</button>
+                    <span class="result"></span>
+
+                    
+
+                </div>
+            </div>
+        
+        </div>
+    </section>
+    <!-- / CALCULATE -->
+
+    <!-- FUNCTIONAL -->
+    <div class="container bottom-line">
+        <div class="row block">
+            <div class="col functional-item">
+                <h1 class="h1" id="functional">Функционал страницы</h1>
+                <h2 class="h2">Подсветка элементов шапки, стрелка прокрутки вверх</h2>
+                <p class="p">При реализации подсветки пунктов меню навигации удалось поработать с координатами страницы и методами <span class="code">getBoundingClientRect()</span> и <span class="code">window.scrollY</span></p>
+            </div>
+            <div class="col functional-item">
+                <img class="functional-image field-image" src="img/abstract.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- / FUNCTIONAL -->
+
+    <!-- ANIMATION -->
+    <div class="container bottom-line">
+        <h1 id="animations">Animations JS</h1>
+        <div class="row block">
+            
+            <div class="col third">
+                <h2 class="col">Lorem ipsum dolor</h2>
+                <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore.Lorem ipsum dolor sit amet.</p>
+                <button type="button" class="btn">Learn more</button>
+            </div>
+            <div class="col third">
+                <h2 class="col">Conse ctetur adipisi</h2>
+                <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore.Lorem ipsum dolor sit amet.</p>
+                <button type="button" class="btn">Learn more</button>
+            </div>
+            <div class="col third">
+                <h2 class="col">Sed do eiusmod tempor</h2>
+                <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore.Lorem ipsum dolor sit amet.</p>
+                <button type="button" class="btn">Learn more</button>
+            </div>
+        </div>
+    </div>
+    <!-- / ANIMATION -->
+
+    <!-- SLIDER -->
+    <div class="container bottom-line">
+        <div class="row block">
+            <div class="col four">
+                <img class="first-blocks__image" src="img/office4.png" alt="">
+            </div>
+            <div class="col four">
+                <h1 class="h1" id="slider">Slider Js</h1>
+                <h2 class="h2">Lorem ipsum dolor sit amet conse ctetur</h2>
+                <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. </p>
+                <h2 class="h2">Lorem ipsum dolor sit amet conse ctetur</h2>
+                <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. </p>
+            </div>
+        </div>
+    </div>
+    <!-- / SLIDER -->
+
+    <!-- RESPONSIVE DESIGN -->
+    <section class="sectionAdv">
+        <div class="container bottom-line">
+            <div class="row advantages">
+                <div class="col advItem">
+                    <div class="advRange">
+                        <img src="img/laptop.png" alt="">
+                    </div>
+                    <div class="advTexts">
+                        <div class="title h2" id="info">Responsive design</div>
+                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    </div>
+                </div>
+                <div class="col advItem">
+                    <div class="advRange">
+                        <img src="img/lamp.png" alt="">
+                    </div>
+                    <div class="advTexts">
+                        <div class="title h2">Amet conse</div>
+                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    </div>
+                </div>
+                <div class="col advItem">
+                    <div class="advRange">
+                        <img src="img/speakers.png" alt="">
+                    </div>
+                    <div class="advTexts">
+                        <div class="title h2">Dolor sit</div>
+                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    </div>
+                </div>
+                <div class="col advItem">
+                    <div class="advRange">
+                        <img src="img/settings.png" alt="">
+                    </div>
+                    <div class="advTexts">
+                        <div class="title h2">Adipisicing elit</div>
+                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / RESPONSIVE DESIGN -->
+
+    <!-- OTHER PROJECTS  -->
+    <section class="sectionTeam">
+        <div class="container bottom-line">
+            <h1 class="h1" id="otherprojects">Другие проекты</h1>
+            <div class="row team">
+                <article class="col teamItem">
+                    <a href="https://github.com/fak1r/VUE-SPA-EXAMPLE">
+                        <img src="img/vue-proj.png" alt="Vue">
+                    </a>
+                    <a href="https://github.com/fak1r/VUE-SPA-EXAMPLE" class="text-link">
+                        <h3 class="h3">Vue.js + Vuex</h3>
+                    </a>
+                    <div>Mini-shop с возможностью добавлять товары в корзину и отображением списка товаров на отдельной странице</div>
+                </article>
+                <article class="col teamItem">
+                    <a href="https://github.com/fak1r/Landing-page">
+                        <img src="img/landing-page.png" alt="Landing">
+                    </a>
+                    <a href="https://github.com/fak1r/Landing-page" class="text-link">
+                        <h3 class="h3">Landing-page</h3>
+                    </a>
+                    <div>Вёрстка страницы с использованием препроцессора SASS и сборщика GULP. Для слайдеров подключался Swiper.</div>
+                </article>
+                <article class="col teamItem">
+                    <a href="https://github.com/fak1r/PHP-Blog">
+                        <img src="img/php-project.png" alt="">
+                    </a>
+                    <a href="https://github.com/fak1r/PHP-Blog" class="text-link">
+                        <h3 class="h3">PHP backend</h3>
+                    </a>
+                    <div>Реализована серверная часть, добавление, редактирование, удаление статей. Работа с GET и POST запросами. Запись и запрос информации в базе данных.</div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- / OTHER PROJECTS  -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row block">
+                <div class="col bottom">
+                    <p class="p">fak1r © 2023.  Privacy Policy </p>
+                </div>
+            </div>
+        </div>
+        <svg class="arrowUpTpTop" width="48px" height="40px" viewBox="0 0 18 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <title>ic_up</title> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"> <g id="24-px-Icons" transform="translate(-267.000000, -79.000000)" stroke="#e2e3e7"> <g id="ic_up" transform="translate(264.000000, 72.000000)"> <g transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " id="ic_back"> <g stroke-width="2"> <g id="back" transform="translate(8.000000, 4.000000)"> <path d="M8,0 L0,8" id="Line"></path> <path d="M0,8 L8,16" id="Line"></path> </g> </g> </g> </g> </g> </g> </svg>
+    </footer>
+    <!-- / FOOTER -->
+</body>
+<script src="js/scripts.js"></script>
+</html>
