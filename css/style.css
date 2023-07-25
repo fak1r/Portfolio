@@ -152,7 +152,12 @@ a{
     z-index: 10;
     top: 0;
 }
-.portfolio{
+@media screen and (max-width: 800px){
+    .header{
+        display: none;
+    }
+}
+.portfolio a{
     display: flex;
     align-items: center;
 }
