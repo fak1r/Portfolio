@@ -60,9 +60,9 @@ window.addEventListener('load', function(){
     function scrollTo(hash){
         // const target = document.getElementById(menuLink.hash.slice(1)); 
         // можно получать по классу за счёт #
-        const h2 = document.querySelector(hash); 
-        const h2MarginTop = parseFloat(window.getComputedStyle(h2).marginTop);
-        const pos = window.scrollY + h2.getBoundingClientRect().top - menu.clientHeight - h2MarginTop;
+        const target = document.querySelector(hash); 
+        const targetMarginTop = parseFloat(window.getComputedStyle(target).marginTop);
+        const pos = window.scrollY + target.getBoundingClientRect().top - menu.clientHeight - targetMarginTop;
         window.scrollTo({
             top: pos,
             behavior: "smooth"
@@ -99,15 +99,14 @@ window.addEventListener('load', function(){
 
         for (let i = topLinks.length - 1; i >= 0; i--){
 
-            const h2 = document.querySelector(topLinks[i].hash); 
-            const h2MarginTop = parseFloat(window.getComputedStyle(h2).marginTop);
-            const h2Pos = window.scrollY + h2.getBoundingClientRect().top;
+            const target = document.querySelector(topLinks[i].hash); 
+            const h2Pos = window.scrollY + target.getBoundingClientRect().top;
             
-            if(window.scrollY > this.window.scrollY + h2.getBoundingClientRect().top - h2MarginTop - menu.clientHeight){
+            if(window.scrollY > this.window.scrollY + target.getBoundingClientRect().top - menu.clientHeight - target.clientHeight / 2){
                 const active = menu.querySelector('.menu__link-active');
                 active.classList.remove('menu__link-active');
                 topLinks[i].classList.add('menu__link-active');
-                console.log(window.scrollY, h2.getBoundingClientRect().top);
+                console.log(window.scrollY, target.getBoundingClientRect().top);
                 break;
             }
         }

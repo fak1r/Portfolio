@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vanilla Js</title>
+    <title>FAKIR Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,31 +19,30 @@
     <header class="header">
         <div class="container">
             <div class="row top-head">
-                <div class="col">
-                    <a href="https://github.com/fak1r">
-                        <img class="logo" src="img/acolyte-yellow.png" width="150" height="150" alt="logo">
-                    </a>
+                <div class="col portfolio">
+                    <svg fill="#edd77e" width="50px" height="50px"  viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>suitcase1</title> <path d="M27 29h-23c-1.105 0-2-0.896-2-2v-12c0 0 5.221 2.685 10 3.784v1.216c0 0.553 0.447 1 1 1h5c0.552 0 1-0.447 1-1v-1.216c4.778-1.099 10-3.784 10-3.784v12c0 1.104-0.896 2-2 2zM17 17c0.552 0 1 0.447 1 1v1c0 0.553-0.448 1-1 1h-3c-0.553 0-1-0.447-1-1v-1c0-0.553 0.447-1 1-1h3zM19 17c0-0.553-0.448-1-1-1h-5c-0.553 0-1 0.447-1 1v0.896c-4.779-1.132-10-3.896-10-3.896v-4c0-1.104 0.895-2 2-2h6v-2c0-1.104 0.896-2 2-2h7c1.104 0 2 0.896 2 2v2h6c1.104 0 2 0.896 2 2v4c0 0-5.222 2.764-10 3.896v-0.896zM19 7c0-0.553-0.448-1-1-1h-5c-0.553 0-1 0.447-1 1 0 0.552 0 1 0 1h7c0 0 0-0.448 0-1z"></path> </g></svg>
+                    <span>Portfolio</span>
                 </div>
                 <ul class="nav-menu">
-                    <li class="col menu__link menu__link-active"><a href="index.html#calculate">Калькулятор</a></li>
-                    <li class="col menu__link"><a href="index.html#functional">Функционал</a></li>
-                    <li class="col menu__link"><a href="index.html#animations">Анимации</a></li>
-                    <li class="col menu__link"><a href="index.html#slider">Слайдер</a></li>
-                    <li class="col menu__link"><a href="index.html#info">Инфо</a></li>
-                    <li class="col menu__link"><a href="index.html#otherprojects">Другие проекты</a></li>
+                    <li class="col"><a class="menu__link menu__link-active" href="index.html#calculate">Калькулятор</a></li>
+                    <li class="col"><a class="menu__link" href="index.html#functional">Функционал</a></li>
+                    <li class="col"><a class="menu__link" href="index.html#animations">Анимации</a></li>
+                    <li class="col"><a class="menu__link" href="index.html#slider">Слайдер</a></li>
+                    <li class="col"><a class="menu__link" href="index.html#info">Инфо</a></li>
+                    <li class="col"><a class="menu__link" href="index.html#otherprojects">Другие проекты</a></li>
                 </ul>
             </div>
         </div>
     </header>
     <!-- / HEADER -->
     <!-- CALCULATE -->
-    <section class="container bottom-line">
+    <section class="container bottom-line margin-top" id="calculate">
         <div class="row block">
             <div class="col first-left">
                 <img class="first-blocks__image field-image" src="img/squiggly-line.png" alt="">
             </div>
             <div class="col first-right">
-                <h1 class="h1" id="calculate">Калькулятор</h1>
+                <h1 class="h1" >Калькулятор</h1>
                 <h2 class="h2">Первый проект на JS</h2>
                 <p class="p">Калькулятор реализован через объект <span class="code">calc</span>, в котором хранятся 4 арифметические функции. 
                     При клике на кнопку вызывается функция <span class="code">calculate</span>, которая ищет арифметическое действие в объекте <span class="code">calc</span> по ключу и передаёт в найденную функцию 2 числа из инпутов. 
@@ -71,10 +70,10 @@
     <!-- / CALCULATE -->
 
     <!-- FUNCTIONAL -->
-    <div class="container bottom-line">
+    <div class="container bottom-line" id="functional">
         <div class="row block">
             <div class="col functional-item">
-                <h1 class="h1" id="functional">Функционал страницы</h1>
+                <h1 class="h1" >Функционал страницы</h1>
                 <h2 class="h2">Подсветка элементов шапки, стрелка прокрутки вверх</h2>
                 <p class="p">При реализации подсветки пунктов меню навигации удалось поработать с координатами страницы и методами <span class="code">getBoundingClientRect()</span> и <span class="code">window.scrollY</span></p>
             </div>
@@ -86,21 +85,20 @@
     <!-- / FUNCTIONAL -->
 
     <!-- ANIMATION -->
-    <div class="container bottom-line">
-        <h1 id="animations">Animations JS</h1>
+    <div class="container bottom-line" id="animations">
+        <h1>Animations JS</h1>
         <div class="row block">
-            
-            <div class="col third">
+            <div class="col animation">
                 <h2 class="col">Lorem ipsum dolor</h2>
                 <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore.Lorem ipsum dolor sit amet.</p>
                 <button type="button" class="btn">Learn more</button>
             </div>
-            <div class="col third">
+            <div class="col animation">
                 <h2 class="col">Conse ctetur adipisi</h2>
                 <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore.Lorem ipsum dolor sit amet.</p>
                 <button type="button" class="btn">Learn more</button>
             </div>
-            <div class="col third">
+            <div class="col animation">
                 <h2 class="col">Sed do eiusmod tempor</h2>
                 <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore.Lorem ipsum dolor sit amet.</p>
                 <button type="button" class="btn">Learn more</button>
@@ -110,13 +108,13 @@
     <!-- / ANIMATION -->
 
     <!-- SLIDER -->
-    <div class="container bottom-line">
+    <div class="container bottom-line" id="slider">
         <div class="row block">
-            <div class="col four">
+            <div class="col slider">
                 <img class="first-blocks__image" src="img/office4.png" alt="">
             </div>
-            <div class="col four">
-                <h1 class="h1" id="slider">Slider Js</h1>
+            <div class="col slider">
+                <h1 class="h1" >Slider Js</h1>
                 <h2 class="h2">Lorem ipsum dolor sit amet conse ctetur</h2>
                 <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. </p>
                 <h2 class="h2">Lorem ipsum dolor sit amet conse ctetur</h2>
@@ -127,7 +125,7 @@
     <!-- / SLIDER -->
 
     <!-- RESPONSIVE DESIGN -->
-    <section class="sectionAdv">
+    <section class="sectionAdv" id="info">
         <div class="container bottom-line">
             <div class="row advantages">
                 <div class="col advItem">
@@ -135,7 +133,7 @@
                         <img src="img/laptop.png" alt="">
                     </div>
                     <div class="advTexts">
-                        <div class="title h2" id="info">Responsive design</div>
+                        <div class="title h2">Responsive design</div>
                         <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
                     </div>
                 </div>
@@ -172,34 +170,34 @@
     <!-- / RESPONSIVE DESIGN -->
 
     <!-- OTHER PROJECTS  -->
-    <section class="sectionTeam">
-        <div class="container bottom-line">
-            <h1 class="h1" id="otherprojects">Другие проекты</h1>
-            <div class="row team">
-                <article class="col teamItem">
+    <section class="sectionProj" id="otherprojects">
+        <div class="container bottom-line block">
+            <h1 class="h1">Другие проекты</h1>
+            <div class="row proj">
+                <article class="col projItem">
                     <a href="https://github.com/fak1r/VUE-SPA-EXAMPLE">
                         <img src="img/vue-proj.png" alt="Vue">
                     </a>
-                    <a href="https://github.com/fak1r/VUE-SPA-EXAMPLE" class="text-link">
-                        <h3 class="h3">Vue.js + Vuex</h3>
+                    <a href="https://github.com/fak1r/VUE-SPA-EXAMPLE">
+                        <h3 class="h3 text-link">Vue.js + Vuex</h3>
                     </a>
                     <div>Mini-shop с возможностью добавлять товары в корзину и отображением списка товаров на отдельной странице</div>
                 </article>
-                <article class="col teamItem">
+                <article class="col projItem">
                     <a href="https://github.com/fak1r/Landing-page">
                         <img src="img/landing-page.png" alt="Landing">
                     </a>
-                    <a href="https://github.com/fak1r/Landing-page" class="text-link">
-                        <h3 class="h3">Landing-page</h3>
+                    <a href="https://github.com/fak1r/Landing-page">
+                        <h3 class="h3 text-link">Landing-page</h3>
                     </a>
                     <div>Вёрстка страницы с использованием препроцессора SASS и сборщика GULP. Для слайдеров подключался Swiper.</div>
                 </article>
-                <article class="col teamItem">
+                <article class="col projItem">
                     <a href="https://github.com/fak1r/PHP-Blog">
-                        <img src="img/php-project.png" alt="">
+                        <img src="img/php-project.png" alt="PHP-Blog">
                     </a>
-                    <a href="https://github.com/fak1r/PHP-Blog" class="text-link">
-                        <h3 class="h3">PHP backend</h3>
+                    <a href="https://github.com/fak1r/PHP-Blog">
+                        <h3 class="h3 text-link">PHP backend</h3>
                     </a>
                     <div>Реализована серверная часть, добавление, редактирование, удаление статей. Работа с GET и POST запросами. Запись и запрос информации в базе данных.</div>
                 </article>
@@ -214,6 +212,11 @@
             <div class="row block">
                 <div class="col bottom">
                     <p class="p">fak1r © 2023.  Privacy Policy </p>
+                </div>
+                <div class="col bottom">
+                    <a href="https://github.com/fak1r">
+                        <img class="acolyte" src="img/acolyte-yellow.png" width="150" height="150" alt="logo">
+                    </a>
                 </div>
             </div>
         </div>
