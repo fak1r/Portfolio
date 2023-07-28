@@ -1,7 +1,6 @@
 window.addEventListener('load', function(){
 
- // _______________________________________________________________ //
- //                         Калькулятор
+    /* ==           Калькулятор           == */
  
     const inp1 = document.querySelector('.num1');
     const inp2 = document.querySelector('.num2');
@@ -34,8 +33,7 @@ window.addEventListener('load', function(){
         btn.disabled = false;
     }));
 
- // _______________________________________________________________ //
- //                         Стрелка вверх
+    /* ==           Стрелка вверх           == */                      
 
     const arrow = document.querySelector('.arrowUpTpTop');
     
@@ -54,8 +52,7 @@ window.addEventListener('load', function(){
         });
     })
 
- // _______________________________________________________________ //
- //                         Подсветка пункта по клику
+    /* ==           Подсветка пункта по клику           == */                        
 
     function scrollTo(hash){
         // const target = document.getElementById(menuLink.hash.slice(1)); 
@@ -90,8 +87,7 @@ window.addEventListener('load', function(){
         scrollTo(window.location.hash)
     }
 
- // _______________________________________________________________ //
- //                    Подсветка пункта по скроллу
+    /* ==           Подсветка пункта по скроллу           == */                 
 
     const topLinks = document.querySelectorAll('.menu__link')
 
@@ -100,16 +96,103 @@ window.addEventListener('load', function(){
         for (let i = topLinks.length - 1; i >= 0; i--){
 
             const target = document.querySelector(topLinks[i].hash); 
-            const h2Pos = window.scrollY + target.getBoundingClientRect().top;
             
-            if(window.scrollY > this.window.scrollY + target.getBoundingClientRect().top - menu.clientHeight - target.clientHeight / 2){
+            if(window.scrollY > window.scrollY + target.getBoundingClientRect().top - menu.clientHeight - target.clientHeight / 2){
                 const active = menu.querySelector('.menu__link-active');
                 active.classList.remove('menu__link-active');
                 topLinks[i].classList.add('menu__link-active');
-                console.log(window.scrollY, target.getBoundingClientRect().top);
                 break;
             }
         }
     })
 
+    /* ==           Анимация блока вопросов           == */
+
+    let faq = document.querySelector('.faq');
+
+	faq.addEventListener('click', function(e){
+		if(e.target.classList.contains('ask')){
+			toogleItem(e.target);
+		}
+	});
+
+	function toogleItem(ask){
+		let answer = ask.parentNode.querySelector('.answ');
+		toogleItemAnim(
+			answer, 
+			500,
+			[
+				{ opacity: 0, transform: 'translateX(-100px)' },
+				{ opacity: 1, transform: 'translateX(0px)' }
+			], 
+			[
+				{ opacity: 1, transform: 'translateX(0)' },
+				{ opacity: 0, transform: 'translateX(100px)' }
+			]
+		);
+	}
 });
+
+/* ==           Переключение анимации           == */
+
+function toogleItemAnim(el, rate, keyframesToShow, keyframesToHide = null){
+	// Для поддержки старых браузеров
+	if(!('animate' in el)){
+		el.classList.toggle('open');
+		return;
+	}
+
+	if(el.jsAnim){
+		return;
+	}
+
+	el.jsAnim = true;
+
+	// если не передали действие скрытия, то просто развернёт действие открытия наоборот
+	if(keyframesToHide === null){
+		keyframesToHide = [...keyframesToShow].reverse();
+	}
+
+	if(el.classList.contains('open')){
+		let animation = el.animate(
+			compileKeyframes(el, keyframesToHide),
+			{ duration: rate }
+		);
+		
+		animation.addEventListener('finish', function(){
+			el.classList.remove('open');
+			el.jsAnim = false;
+		});
+	}
+	else{
+		el.classList.add('open');
+
+		let animation = el.animate(
+			compileKeyframes(el, keyframesToShow),
+			{ duration: rate }
+		);
+
+		animation.addEventListener('finish', function(){
+			el.jsAnim = false;
+		});
+	}
+}
+
+function compileKeyframes(el , keyframes){
+	let res = [];
+
+	for(let i = 0; i < keyframes.length; i++){
+		let frame = keyframes[i];
+		let realFrame = {};
+
+		for(let name in frame){
+			realFrame[name] = typeof frame[name] === 'function' ? 
+			frame[name](el) : 
+			frame[name];
+		}
+
+		res.push(realFrame);
+	}
+	
+	return res;
+}
