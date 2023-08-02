@@ -19,11 +19,18 @@
     <header class="header">
         <div class="container">
             <div class="row top-head">
-                <div class="col portfolio">
-                    <a href="https://github.com/fak1r/Portfolio">
-                        <svg fill="#edd77e" width="50px" height="50px"  viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Portfolio</title> <path d="M27 29h-23c-1.105 0-2-0.896-2-2v-12c0 0 5.221 2.685 10 3.784v1.216c0 0.553 0.447 1 1 1h5c0.552 0 1-0.447 1-1v-1.216c4.778-1.099 10-3.784 10-3.784v12c0 1.104-0.896 2-2 2zM17 17c0.552 0 1 0.447 1 1v1c0 0.553-0.448 1-1 1h-3c-0.553 0-1-0.447-1-1v-1c0-0.553 0.447-1 1-1h3zM19 17c0-0.553-0.448-1-1-1h-5c-0.553 0-1 0.447-1 1v0.896c-4.779-1.132-10-3.896-10-3.896v-4c0-1.104 0.895-2 2-2h6v-2c0-1.104 0.896-2 2-2h7c1.104 0 2 0.896 2 2v2h6c1.104 0 2 0.896 2 2v4c0 0-5.222 2.764-10 3.896v-0.896zM19 7c0-0.553-0.448-1-1-1h-5c-0.553 0-1 0.447-1 1 0 0.552 0 1 0 1h7c0 0 0-0.448 0-1z"></path> </g></svg>
-                        <span>Portfolio</span>
-                    </a>
+                <div class="adaptive-header">
+                    <div class="col portfolio">
+                        <a href="https://github.com/fak1r/Portfolio">
+                            <svg fill="#edd77e" width="50px" height="50px"  viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Portfolio</title> <path d="M27 29h-23c-1.105 0-2-0.896-2-2v-12c0 0 5.221 2.685 10 3.784v1.216c0 0.553 0.447 1 1 1h5c0.552 0 1-0.447 1-1v-1.216c4.778-1.099 10-3.784 10-3.784v12c0 1.104-0.896 2-2 2zM17 17c0.552 0 1 0.447 1 1v1c0 0.553-0.448 1-1 1h-3c-0.553 0-1-0.447-1-1v-1c0-0.553 0.447-1 1-1h3zM19 17c0-0.553-0.448-1-1-1h-5c-0.553 0-1 0.447-1 1v0.896c-4.779-1.132-10-3.896-10-3.896v-4c0-1.104 0.895-2 2-2h6v-2c0-1.104 0.896-2 2-2h7c1.104 0 2 0.896 2 2v2h6c1.104 0 2 0.896 2 2v4c0 0-5.222 2.764-10 3.896v-0.896zM19 7c0-0.553-0.448-1-1-1h-5c-0.553 0-1 0.447-1 1 0 0.552 0 1 0 1h7c0 0 0-0.448 0-1z"></path> </g></svg>
+                            <span>Portfolio</span>
+                        </a>
+                    </div>
+                    <button class="btn-burger" aria-label="Toggle navigation">
+                        <span class="btn-burger__line"></span>
+                        <span class="btn-burger__line"></span>
+                        <span class="btn-burger__line"></span>
+                    </button>
                 </div>
                 <ul class="nav-menu">
                     <li class="col"><a class="menu__link menu__link-active" href="index.html#calculate">Калькулятор</a></li>
@@ -38,32 +45,30 @@
     </header>
     <!-- / HEADER -->
     <!-- CALCULATE -->
-    <section class="container bottom-line margin-top" id="calculate">
+    <section class="container bottom-line calc-margin-top" id="calculate">
         <div class="row block">
-            <div class="col first-left">
-                <img class="first-blocks__image field-image" src="img/squiggly-line.png" alt="">
+            <div class="col calculate-left">
+                <img class="calculate-image field-image" src="img/squiggly-line.webp" alt="calculate" height="358" width="560">
             </div>
-            <div class="col first-right">
+            <div class="col calculate-right">
                 <h1 class="h1" >Калькулятор</h1>
                 <h2 class="h2">Первый проект на JS</h2>
-                <p class="p">Калькулятор реализован через объект <span class="code purple">calc</span>, в котором хранятся 4 арифметические функции. 
+                <p class="p"> Все буквы автоматически заменяются, как при вводе с клавиатуры, так и при попытке вставить извне. Кнопка блокируется до ввода новых значений или смены селектора.
+                    Калькулятор реализован через объект <span class="code purple">calc</span>, в котором хранятся 4 арифметические функции. 
                     При клике на кнопку вызывается функция <span class="code purple">calculate</span>, которая ищет арифметическое действие в объекте <span class="code purple">calc</span> по ключу и передаёт в найденную функцию 2 числа из инпутов. 
-                    Все буквы автоматически заменяются, как при вводе с клавиатуры, так и при попытке вставить извне. Кнопка блокируется до ввода новых значений или смены селектора.</p>
+                   </p>
                     <br>
                 <div class="math">
-                    <input type="text" class="num1">
-                    <select name="" id="" class="op">
+                    <input type="text" class="input num1 ">
+                    <select name="" id="" class="op math-item">
                         <option value="plus">+</option>
                         <option value="minus">-</option>
                         <option value="mult">*</option>
                         <option value="div">/</option>
                     </select>
-                    <input type="text" class="num2">
-                    <button class="btn">Результат</button>
-                    <span class="result"></span>
-
-                    
-
+                    <input type="text" class="input num2 ">
+                    <button class="btn math-item">Вычислить</button>
+                    <p class="p">Результат: <span class="result "></span></p>
                 </div>
             </div>
         
@@ -80,7 +85,7 @@
                 <p class="p">При реализации подсветки пунктов меню навигации удалось поработать с координатами страницы и методами <span class="code purple">getBoundingClientRect()</span> и <span class="code purple">window.scrollY</span></p>
             </div>
             <div class="col functional-item">
-                <img class="functional-image field-image" src="img/abstract.png" alt="">
+                <img class="functional-image field-image" src="img/abstract.webp" alt="functional" height="600" width="440">
             </div>
         </div>
     </div>
@@ -146,7 +151,7 @@
     <div class="container bottom-line" id="slider">
         <div class="row block">
             <div class="col slider">
-                <img class="first-blocks__image" src="img/office4.png" alt="">
+                <img class="slider-image" src="img/office4.png" alt="">
             </div>
             <div class="col slider">
                 <h1 class="h1" >Slider Js</h1>
@@ -216,7 +221,7 @@
                     <a href="https://github.com/fak1r/VUE-SPA-EXAMPLE">
                         <h3 class="h3 text-link">Vue.js + Vuex</h3>
                     </a>
-                    <div>Mini-shop с возможностью добавлять товары в корзину и отображением списка товаров на отдельной странице</div>
+                    <p class="p">Mini-shop с возможностью добавлять товары в корзину и отображением списка товаров на отдельной странице</p>
                 </article>
                 <article class="col projItem">
                     <a href="https://github.com/fak1r/Landing-page">
@@ -225,7 +230,7 @@
                     <a href="https://github.com/fak1r/Landing-page">
                         <h3 class="h3 text-link">Landing-page</h3>
                     </a>
-                    <div>Вёрстка страницы с использованием препроцессора SASS и сборщика GULP. Для слайдеров подключался Swiper.</div>
+                    <p class="p">Вёрстка страницы с использованием препроцессора SASS и сборщика GULP. Для слайдеров подключался Swiper.</p>
                 </article>
                 <article class="col projItem">
                     <a href="https://github.com/fak1r/PHP-Blog">
@@ -234,7 +239,7 @@
                     <a href="https://github.com/fak1r/PHP-Blog">
                         <h3 class="h3 text-link">PHP backend</h3>
                     </a>
-                    <div>Реализована серверная часть, добавление, редактирование, удаление статей. Работа с GET и POST запросами. Запись и запрос информации в базе данных.</div>
+                    <p class="p">Реализована серверная часть, добавление, редактирование, удаление статей. Работа с GET и POST запросами. Запись и запрос информации в базе данных.</p>
                 </article>
             </div>
         </div>

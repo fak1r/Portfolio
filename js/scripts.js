@@ -1,5 +1,23 @@
 window.addEventListener('load', function(){
 
+    /* ==           Шапка           == */
+
+    const btnBurger = document.querySelector('.btn-burger');
+    const menu = document.querySelector('.nav-menu');
+
+    btnBurger.addEventListener('click', function(){
+		toogleItemAnim(
+			menu, 
+			500,
+			[
+				{  transform: 'translateY(-100%)' },
+				{  transform: 'translateY(0px)' }
+			]
+		);
+
+    })
+
+
     /* ==           Калькулятор           == */
  
     const inp1 = document.querySelector('.num1');
@@ -59,14 +77,12 @@ window.addEventListener('load', function(){
         // можно получать по классу за счёт #
         const target = document.querySelector(hash); 
         const targetMarginTop = parseFloat(window.getComputedStyle(target).marginTop);
-        const pos = window.scrollY + target.getBoundingClientRect().top - menu.clientHeight - targetMarginTop;
+        const pos = window.scrollY + target.getBoundingClientRect().top -  - targetMarginTop;
         window.scrollTo({
             top: pos,
             behavior: "smooth"
         });
     }
-
-    const menu = document.querySelector('.nav-menu');
 
     menu.addEventListener('click', function(e){
         if(e.target.classList.contains('menu__link')){
@@ -97,7 +113,7 @@ window.addEventListener('load', function(){
 
             const target = document.querySelector(topLinks[i].hash); 
             
-            if(window.scrollY > window.scrollY + target.getBoundingClientRect().top - menu.clientHeight - target.clientHeight / 2){
+            if(window.scrollY > window.scrollY + target.getBoundingClientRect().top - 80 - target.clientHeight / 2){
                 const active = menu.querySelector('.menu__link-active');
                 active.classList.remove('menu__link-active');
                 topLinks[i].classList.add('menu__link-active');
@@ -108,7 +124,7 @@ window.addEventListener('load', function(){
 
     /* ==           Анимация блока вопросов           == */
 
-    let faq = document.querySelector('.faq');
+    const faq = document.querySelector('.faq');
 
 	faq.addEventListener('click', function(e){
 		if(e.target.classList.contains('ask')){
@@ -117,7 +133,7 @@ window.addEventListener('load', function(){
 	});
 
 	function toogleItem(ask){
-		let answer = ask.parentNode.querySelector('.answ');
+		const answer = ask.parentNode.querySelector('.answ');
 		toogleItemAnim(
 			answer, 
 			500,
@@ -154,7 +170,7 @@ function toogleItemAnim(el, rate, keyframesToShow, keyframesToHide = null){
 	}
 
 	if(el.classList.contains('open')){
-		let animation = el.animate(
+		const animation = el.animate(
 			compileKeyframes(el, keyframesToHide),
 			{ duration: rate }
 		);
@@ -167,7 +183,7 @@ function toogleItemAnim(el, rate, keyframesToShow, keyframesToHide = null){
 	else{
 		el.classList.add('open');
 
-		let animation = el.animate(
+		const animation = el.animate(
 			compileKeyframes(el, keyframesToShow),
 			{ duration: rate }
 		);
@@ -179,11 +195,11 @@ function toogleItemAnim(el, rate, keyframesToShow, keyframesToHide = null){
 }
 
 function compileKeyframes(el , keyframes){
-	let res = [];
+	const res = [];
 
 	for(let i = 0; i < keyframes.length; i++){
-		let frame = keyframes[i];
-		let realFrame = {};
+		const frame = keyframes[i];
+		const realFrame = {};
 
 		for(let name in frame){
 			realFrame[name] = typeof frame[name] === 'function' ? 
