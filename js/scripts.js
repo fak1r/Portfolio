@@ -17,7 +17,6 @@ window.addEventListener('load', function(){
 
     })
 
-
     /* ==           Калькулятор           == */
  
     const inp1 = document.querySelector('.num1');
@@ -140,75 +139,140 @@ window.addEventListener('load', function(){
 			[
 				{ opacity: 0, transform: 'translateX(-100px)' },
 				{ opacity: 1, transform: 'translateX(0px)' }
-			], 
-			[
-				{ opacity: 1, transform: 'translateX(0)' },
-				{ opacity: 0, transform: 'translateX(100px)' }
 			]
 		);
 	}
-});
 
-/* ==           Переключение анимации           == */
+    /* ==           Слайдер фотографий           == */
 
-function toogleItemAnim(el, rate, keyframesToShow, keyframesToHide = null){
-	// Для поддержки старых браузеров
-	if(!('animate' in el)){
-		el.classList.toggle('open');
-		return;
-	}
+    const slides = document.querySelectorAll('.slider-image');
+    const prevSlide = document.querySelector('.prev-slide');
+    const nextSlide = document.querySelector('.next-slide');
 
-	if(el.jsAnim){
-		return;
-	}
+    let slideAnimated = false;
 
-	el.jsAnim = true;
+    let i = 0;
 
-	// если не передали действие скрытия, то просто развернёт действие открытия наоборот
-	if(keyframesToHide === null){
-		keyframesToHide = [...keyframesToShow].reverse();
-	}
-
-	if(el.classList.contains('open')){
-		const animation = el.animate(
-			compileKeyframes(el, keyframesToHide),
-			{ duration: rate }
-		);
-		
-		animation.addEventListener('finish', function(){
-			el.classList.remove('open');
-			el.jsAnim = false;
-		});
-	}
-	else{
-		el.classList.add('open');
-
-		const animation = el.animate(
-			compileKeyframes(el, keyframesToShow),
-			{ duration: rate }
-		);
-
-		animation.addEventListener('finish', function(){
-			el.jsAnim = false;
-		});
-	}
-}
-
-function compileKeyframes(el , keyframes){
-	const res = [];
-
-	for(let i = 0; i < keyframes.length; i++){
-		const frame = keyframes[i];
-		const realFrame = {};
-
-		for(let name in frame){
-			realFrame[name] = typeof frame[name] === 'function' ? 
-			frame[name](el) : 
-			frame[name];
+    prevSlide.addEventListener('click', function(){
+        if(slideAnimated){
+			return;
 		}
+        slideAnimated = true;
 
-		res.push(realFrame);
+        const slideHide = slides[i];
+        i = i > 0 ? i - 1 : slides.length - 1;
+        toogleItemAnim(
+            slideHide,
+            500,
+            [
+				{ opacity: 0, transform: 'translateX(-100px)' },
+				{ opacity: 1, transform: 'translateX(0)' }
+			], 
+            [
+				{ opacity: 1, transform: 'translateX(0)' },
+				{ opacity: 0, transform: 'translateX(100px)' }
+			],
+            slides[i]
+        )
+    })
+
+    nextSlide.addEventListener('click', function(){
+        if(slideAnimated){
+			return;
+		}
+        slideAnimated = true;
+        const slideHide = slides[i];
+
+        i = i < slides.length - 1 ? i + 1 : 0;
+        
+        toogleItemAnim(
+            slideHide,
+            500,
+            [
+				{ opacity: 0, transform: 'translateX(100px)' },
+				{ opacity: 1, transform: 'translateX(0)' }
+			],
+            [
+				{ opacity: 1, transform: 'translateX(0)' },
+				{ opacity: 0, transform: 'translateX(-100px)' }
+			], 
+            slides[i]
+        )
+    })
+
+    /* ==           Переключение анимации (используется в шапке, блоке вопросов и слайдере)           == */
+
+    function toogleItemAnim(el, rate, keyframesToShow, keyframesToHide = null, el2 = null){
+        // Для поддержки старых браузеров
+        if(!('animate' in el)){
+            el.classList.toggle('open');
+            return;
+        }
+
+        if(el.jsAnim){
+            return;
+        }
+
+        // если не передали действие скрытия, то просто развернёт действие открытия наоборот
+        if(keyframesToHide === null){
+            keyframesToHide = [...keyframesToShow].reverse();
+        }
+
+        if(el.classList.contains('open')){
+            const animation = el.animate(
+                compileKeyframes(el, keyframesToHide),
+                { duration: rate }
+            );
+
+            animation.addEventListener('finish', function(){
+                el.classList.remove('open');
+
+                // отдельное условие для слайдера, т.к. там 2 кейфрейма
+                if(el2 != null){
+                    el2.classList.add('open')
+
+                    const animation = el2.animate(
+                        compileKeyframes(el2, keyframesToShow),
+                        { duration: rate }
+                    );
+
+                    animation.addEventListener('finish', function(){
+                        el.jsAnim = false;
+                        slideAnimated = false;
+                    });
+
+                } else {
+                    el.jsAnim = false;
+                }
+            });
+        } else {
+            el.classList.add('open');
+            const animation = el.animate(
+                compileKeyframes(el, keyframesToShow),
+                { duration: rate }
+            );
+
+            animation.addEventListener('finish', function(){
+                el.jsAnim = false;
+                slideAnimated = false;
+            });
+        }
 	}
-	
-	return res;
-}
+    function compileKeyframes(el, keyframes){
+        const res = [];
+    
+        for(let i = 0; i < keyframes.length; i++){
+            const frame = keyframes[i];
+            const realFrame = {};
+    
+            for(let name in frame){
+                realFrame[name] = typeof frame[name] === 'function' ? 
+                frame[name](el) : 
+                frame[name];
+    
+            }
+            res.push(realFrame);
+        }
+        return res;
+    }
+});

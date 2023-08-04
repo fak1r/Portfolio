@@ -291,6 +291,7 @@ a{
 .menu__link{
     color: var(--colorWhite);
 }
+
 .menu__link-active{
     color: var(--colorLigthYellow);
 }
@@ -304,16 +305,17 @@ a{
     margin-top: 80px;
 }
 
-
 .calculate-left{
     margin: 0;
     width: 50%;
 }
+
 .calculate-right{
     position: relative;
     margin: 0;
     width: 50%;
 }
+
 .calculate-image{
     max-width: calc(100% - 40px);
     margin-right: 40px;
@@ -458,34 +460,88 @@ a{
 /* == SLIDER == */
 
 .slider{
+    width: 100%;
+}
+.slider-item{
     margin: 0;
-    width: calc(100% / 2 );
+    width: calc(100% / 2 - 40px);
+}
+.slider-item:first-child{
+    margin-right: 40px;
+    z-index: 1;
+}
+.slider-item:last-child{
+    overflow: hidden;
+    z-index: 10;
 }
 
 .slider-image{
-    max-width: calc(100% - 40px);
+    max-width: 100%;
+    display: none;
+    z-index: 1;
+}
+
+.slider-btns{
+    width: calc(100% / 2 - 40px);
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.next-slide{
     margin-right: 40px;
+    margin-left: 10px;
+
+}
+
+
+@media (max-width:1000px) {
+
+    .slider{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+
+    }
+    .slider-item{
+        width: 100%;
+    }
+    .slider-image{
+        width: 100%;
+        margin: 0;
+        margin: 10px 0;
+    }
+    .slider-btns{
+        width: 100%;
+        margin-top: 0;
+    }
+    .slider-item:first-child{
+        margin-right: 0;
+    }
+    .next-slide{
+        margin-right: 0;
+    }
 }
 
 /* == / SLIDER == */
 
 
 
-/* == RESPONSIVE DESIGN == */
+/* == INFO == */
 
 
-.advItem{
+.info-item{
 	width: calc(100% / 2 - 30px);
 	display: flex;
 	margin-top: 35px;
 }
 
-.advItem .title{
+.info-item .title{
 	color: var(--colorGreen);
 	margin-top: 0;
 }
 
-.advRange{
+.info-circle{
 	width: 131px;
 	height: 131px;
 	background-color: var(--colorGreen);
@@ -495,12 +551,17 @@ a{
 	margin-right: 20px;
 }
 
-.advTexts{
+.info-text{
 	width: calc(100% - 151px);
 }
 
-.advRange img{
-	vertical-align: middle;
+.info-image{
+    vertical-align: middle;
+    pointer-events: none;
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
 }
 
 @media screen and (max-width: 800px){
@@ -509,7 +570,7 @@ a{
 	}
 }
 
-/* == / RESPONSIVE DESIGN == */
+/* == / INFO == */
 
 
 
