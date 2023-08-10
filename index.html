@@ -37,7 +37,7 @@
                     <li class="col"><a class="menu__link" href="index.html#functional">Функционал</a></li>
                     <li class="col"><a class="menu__link" href="index.html#animations">Шпаргалка</a></li>
                     <li class="col"><a class="menu__link" href="index.html#slider">Слайдер</a></li>
-                    <li class="col"><a class="menu__link" href="index.html#info">Инфо</a></li>
+                    <li class="col"><a class="menu__link" href="index.html#timer">Таймеры</a></li>
                     <li class="col"><a class="menu__link" href="index.html#otherprojects">Другие проекты</a></li>
                 </ul>
             </div>
@@ -52,10 +52,10 @@
             </div>
             <div class="col calculate-right">
                 <h1 class="h1" >Калькулятор</h1>
-                <h2 class="h2">Первый проект на JS</h2>
+                <h2 class="h2">Стартовый проект на JS</h2>
                 <p class="p"> Все буквы автоматически заменяются, как при вводе с клавиатуры, так и при попытке вставить извне. Кнопка блокируется до ввода новых значений или смены селектора.
-                    Калькулятор реализован через объект <span class="code purple">calc</span>, в котором хранятся 4 арифметические функции. 
-                    При клике на кнопку вызывается функция <span class="code purple">calculate</span>, которая ищет арифметическое действие в объекте <span class="code purple">calc</span> по ключу и передаёт в найденную функцию 2 числа из инпутов. 
+                    Калькулятор реализован через объект <span class="code blue">calc</span>, в котором хранятся 4 арифметические функции. 
+                    При клике на кнопку вызывается функция <span class="code yellow">calculate<span class="purple">()</span></span>, которая ищет арифметическое действие в объекте <span class="code blue">calc</span> по ключу и передаёт в найденную функцию 2 числа из инпутов. 
                    </p>
                     <br>
                 <div class="math">
@@ -81,8 +81,8 @@
         <div class="row block">
             <div class="col functional-item">
                 <h1 class="h1" >Функционал страницы</h1>
-                <h2 class="h2">Подсветка элементов шапки, стрелка прокрутки вверх</h2>
-                <p class="p">При реализации подсветки пунктов меню навигации удалось поработать с координатами страницы и методами <span class="code purple">getBoundingClientRect()</span> и <span class="code purple">window.scrollY</span></p>
+                <h2 class="h2">Подсветка элементов шапки, стрелка прокрутки вверх, адаптивное бургер-меню.</h2>
+                <p class="p">При реализации подсветки пунктов меню навигации удалось поработать с координатами страницы и методами <span class="code yellow">getBoundingClientRect<span class="purple">()</span></span> и <span class="code blue">window.scrollY</span>.<br> Добавил немного CSS анимации в подвале, при наведении на картинку.</p>
             </div>
             <div class="col functional-item">
                 <img class="functional-image field-image" src="img/abstract.webp" alt="functional" height="600" width="440">
@@ -149,70 +149,84 @@
 
     <!-- SLIDER -->
     <div class="container bottom-line" id="slider">
-        <div class="row block slider">
+        <div class="row slider block">
             <div class="col slider-item">
                 <img class="slider-image open" src="img/slide-1.png" alt="">
                 <img class="slider-image" src="img/slide-2.png" alt="">
                 <img class="slider-image" src="img/slide-3.png" alt="">
-
+                <div class="slider-btns">
+                    <button type="button" class="btn prev-slide">Назад</button>
+                    <button type="button" class="btn next-slide">Вперёд</button>
+                </div>
             </div>
             <div class="col slider-item">
                 <h1 class="h1" >Slider Js</h1>
-                <h2 class="h2">Lorem ipsum dolor sit amet conse ctetur</h2>
-                <p class="p">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et.Lorem ipsum dolor sit amet. </p>
+                <h2 class="h2">Все анимации на странице используют одну и ту же функцию <span class="code yellow">toogleItemAnim</span></h2>
+                <p class="p">Предусмотрена защита от множественных кликов. Если в функцию передать 1 кейфрейм, она отзеркалит его (так сделано в блоке вопросов и в шапке). В слайдере же передано 2 кейфрейма и функция выполняет дополнительное условие, таким образом реверсирует первый кейфрейм и отдельно второй, делая из двух четыре.<br> 1. Уйти влево 2. Появиться справа. 3. Уйти вправо. 4. Появиться слева</p>
             </div>
         </div>
-        <div class="row slider-btns">
-            <button type="button" class="btn prev-slide">Назад</button>
-            <button type="button" class="btn next-slide">Вперёд</button>
-        </div>
+
     </div>
     <!-- / SLIDER -->
 
-    <!-- INFO -->
-    <section class="sectionAdv" id="info">
+    <!-- TIMER -->
+    <section class="section-timer" id="timer">
         <div class="container bottom-line">
-            <div class="row advantages">
-                <div class="col info-item">
-                    <div class="info-circle">
-                        <img src="img/laptop.png" class="info-image" alt="">
+            <div class="row block">
+                <div class="col timer-item">
+                    <div class="timer-circle">
+                        <img src="img/timer-1.svg" class="timer-image" alt="">
                     </div>
-                    <div class="info-text">
-                        <div class="title h2">INFO</div>
-                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
-                    </div>
-                </div>
-                <div class="col info-item">
-                    <div class="info-circle">
-                        <img src="img/lamp.png" class="info-image" alt="">
-                    </div>
-                    <div class="info-text">
-                        <div class="title h2">Amet conse</div>
-                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    <div class="timer-text">
+                        <div class="title h2">Базовый таймер в секундах</div>
+                        <div class="text p"><span class="code blue">class <span class="green">Timer</span></span> - таймер обратного отсчёта реализован с применением ООП. Выводит время в секундах. <br> Имеет методы: <span class="code yellow">start<span class="purple">()</span> stop<span class="purple">()</span> tick<span class="purple">()</span> render<span class="purple">()</span></span>  </div>
+                        <hr>
+                        <div class="timer1 code purple"></div>
                     </div>
                 </div>
-                <div class="col info-item">
-                    <div class="info-circle">
-                        <img src="img/speakers.png" class="info-image" alt="">
+                <div class="col timer-item">
+                    <div class="timer-circle">
+                        <img src="img/timer-2.svg" class="timer-image" alt="">
                     </div>
-                    <div class="info-text">
-                        <div class="title h2">Dolor sit</div>
-                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    <div class="timer-text">
+                        <div class="title h2">Первый наследник</div>
+                        <div class="text p"><span class="code blue">class <span class="green">FormatTimer</span> extends <span class="green">Timer</span></span> - преобразует секунды в правильный формат за счёт новой функции <span class="code yellow">timeFormat<span class="purple">()</span></span>, которой не было у родительского класса. Так же переопределяет родительский метод <span class="code yellow">render<span class="purple">()</span></span>, для корректного отображения времени по формату.</div>
+                        <hr>
+                        <div class="timer2 code purple"></div>
                     </div>
                 </div>
-                <div class="col info-item">
-                    <div class="info-circle">
-                        <img src="img/settings.png" class="info-image" alt="">
+                <div class="col timer-item">
+                    <div class="timer-circle">
+                        <img src="img/timer-3.svg" class="timer-image" alt="">
                     </div>
-                    <div class="info-text">
-                        <div class="title h2">Adipisicing elit</div>
-                        <div class="text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
+                    <div class="timer-text">
+                        <div class="title h2">Наследник третьего поколения</div>
+                        <div class="text p"><span class="code blue">class <span class="green">WordTimer</span> extends <span class="green">FormatTimer</span> </span>- добавляет функцию <span class="code yellow">wordsTime<span class="purple">()</span></span>, которая производит буквенное склонение едениц измерения времени.</div>
+                        <hr>
+                        <div class="timer3 code purple"></div>
+                    </div>
+                </div>
+                <div class="col timer-item">
+                    <div class="timer-circle">
+                        <img src="img/timer-4.svg" class="timer-image" alt="">
+                    </div>
+                    <div class="timer-text">
+                        <div class="title h2">Управление таймерами</div>
+                        <div class="text p">Кнопки управления завязаны на все таймеры одновременно. Чтобы таймеры появились, нужно установить время в секундах.<br> Добавлена валидация инпута, вводить можно только целые числа.</div>
+                        <br>
+                        <input type="text" class="timer-time" placeholder="10000">
+                        <button type="button" class="btn init-timers">Установить время</button>
+                        <hr>
+                        <div class="timer-btns">
+                            <button type="button" class="btn stop-timers">Стоп</button>
+                            <button type="button" class="btn start-timers">Пуск</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- / INFO -->
+    <!-- / TIMER -->
 
     <!-- OTHER PROJECTS  -->
     <section class="sectionProj" id="otherprojects">
@@ -259,12 +273,15 @@
                     <p class="p">fak1r © 2023.  Privacy Policy </p>
                 </div>
                 <div class="col bottom">
-                    <a href="https://github.com/fak1r">
-                        <img class="acolyte" src="img/acolyte-yellow.png" width="150" height="150" alt="logo">
-                    </a>
+                    <div class="acolyte">
+                        <a href="https://github.com/fak1r">
+                            <img class="acolyte-img" src="img/acolyte-yellow.png" width="150" height="150" alt="logo">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+        
         <svg class="arrowUpTpTop" width="48px" height="40px" viewBox="0 0 18 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <title>ic_up</title> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"> <g id="24-px-Icons" transform="translate(-267.000000, -79.000000)" stroke="#e2e3e7"> <g id="ic_up" transform="translate(264.000000, 72.000000)"> <g transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " id="ic_back"> <g stroke-width="2"> <g id="back" transform="translate(8.000000, 4.000000)"> <path d="M8,0 L0,8" id="Line"></path> <path d="M0,8 L8,16" id="Line"></path> </g> </g> </g> </g> </g> </g> </svg>
     </footer>
     <!-- / FOOTER -->
