@@ -76,7 +76,7 @@ window.addEventListener('load', function(){
         // можно получать по классу за счёт #
         const target = document.querySelector(hash); 
         const targetMarginTop = parseFloat(window.getComputedStyle(target).marginTop);
-        const pos = window.scrollY + target.getBoundingClientRect().top -  - targetMarginTop;
+        const pos = window.scrollY + target.getBoundingClientRect().top - targetMarginTop;
         window.scrollTo({
             top: pos,
             behavior: "smooth"
@@ -275,4 +275,155 @@ window.addEventListener('load', function(){
         }
         return res;
     }
+
+    /* ==           Таймер           == */
+
+    const stopTimersBtn = document.querySelector('.stop-timers');
+    const startTimersBtn = document.querySelector('.start-timers');
+    const initTimersBtn = document.querySelector('.init-timers');
+    
+    initTimersBtn.addEventListener('click', timeValidate);
+
+    function timeValidate(){
+        const inputTime = document.querySelector('.timer-time');
+        if(/^\d+$/g.test(inputTime.value)){
+            inputTime.classList.remove('timer-err');
+            inputTime.setAttribute('readOnly', 1);
+            initTimers();
+        } else {
+            inputTime.classList.add('timer-err');
+        }
+    }
+
+    function initTimers(){
+        const time = document.querySelector('.timer-time').value;
+        const timer1 = new Timer('.timer1', time);
+        const timer2 = new FormatTimer('.timer2', time);
+        const timer3 = new WordTimer('.timer3', time);
+        initTimersBtn.disabled = true;
+        initTimersBtn.innerHTML = 'Время установлено';
+        
+        startTimersBtn.disabled = true;
+
+        stopTimersBtn.addEventListener('click', function(){
+            this.disabled = true;
+    
+            startTimersBtn.disabled = false;
+            timer1.stop();
+            timer2.stop();
+            timer3.stop();
+        });
+    
+        startTimersBtn.addEventListener('click', function(){
+            this.disabled = true;
+
+            stopTimersBtn.disabled = false;
+            stopTimersBtn.innerHTML = 'Стоп';
+            timer1.start();
+            timer2.start();
+            timer3.start();
+        });
+    }
+
+    
 });
+
+class Timer{
+    constructor(selector, time){
+        this.box = document.querySelector(selector);
+        this.time = time;
+        this.interval = null;
+        this.render();
+        this.start();
+    }
+
+    start(){
+        this.interval = setInterval(() => {
+            this.tick();
+        }, 1000);
+    }
+
+    stop(){
+        clearInterval(this.interval);
+    }
+
+    tick(){
+        this.time--;
+        this.render();
+
+        if(this.time < 1){
+            this.stop();
+        }
+    }
+
+    render(){
+        this.box.innerHTML = this.time;
+    }
+}
+
+class FormatTimer extends Timer{
+    constructor(selector, time){
+        super(selector, time);
+    }
+
+    tick(){
+        super.tick();
+    }
+
+    timeFormat(){
+        this.h = parseInt(this.time / 3600); 
+        this.hs = this.time % 3600; 
+        this.m = parseInt(this.hs / 60); 
+        this.s = this.hs % 60; 
+    }
+    render(){
+        this.timeFormat();
+        this.box.innerHTML = `${this.h}:${this.m}:${this.s}`;
+    }
+}
+
+class WordTimer extends FormatTimer{
+    
+    constructor(selector, time){
+        super(selector, time);
+
+    }
+
+    wordsTime(){
+        super.timeFormat();
+        if (this.h % 100 >= 11 && this.h % 100 <= 14){
+            this.h = this.h + ' часов';
+        } else if(this.h % 10 == 1){
+            this.h = this.h + ' час';
+        } else if (this.h % 10 >= 2 && this.h % 10 <= 4){
+            this.h = this.h + ' часа';
+        } else {
+            this.h = this.h + ' часов';
+        }
+
+        if (this.m % 100 >= 11 && this.m % 100 <= 14){
+            this.m = this.m + ' минут';
+        } else if(this.m % 10 == 1){
+            this.m = this.m + ' минута';
+        } else if (this.m % 10 >= 2 && this.m % 10 <= 4){
+            this.m = this.m + ' минуты';
+        } else {
+            this.m = this.m + ' минут';
+        }
+
+        if (this.s % 100 >= 11 && this.s % 100 <= 14){
+            this.s = this.s + ' секунд';
+        } else if(this.s % 10 == 1){
+            this.s = this.s + ' секунда';
+        } else if (this.s % 10 >= 2 && this.s % 10 <= 4){
+            this.s = this.s + ' секунды';
+        } else {
+            this.s = this.s + ' секунд';
+        }
+    }
+
+    render(){
+        this.wordsTime();
+        this.box.innerHTML = `${this.h} ${this.m} ${this.s}`;	
+    }
+}
